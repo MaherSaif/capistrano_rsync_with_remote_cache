@@ -33,4 +33,4 @@ Deployment happens in three major steps. First, the local cache directory is pro
 
 Second, `rsync` runs on the local side to sync the remote cache to the local cache. When the `rsync` is complete, the remote cache should be an exact replica of the local cache.
 
-Finally, a copy of the remote cache is made in the appropriate release directory. The end result is the same as if the code had been checked out directly on the remote server, as in the default strategy.
+Finally, a copy of the remote cache (excluding scm directories) is made in the appropriate release directory. The end result is the same as if the code had been checked out directly on the remote server, as in the default strategy.  Refer to rsync --cvs_ignore to customize excluded dirs/files. 

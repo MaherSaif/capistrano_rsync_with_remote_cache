@@ -27,8 +27,8 @@ module Capistrano
             system("rsync #{rsync_options} --rsh='ssh -p #{ssh_port}' #{local_cache}/ #{rsync_host(server)}:#{repository_cache}/")
           end
 
-          # Step 3: Copy the remote cache into place.
-          run("rsync -a --delete #{repository_cache}/ #{configuration[:release_path]}/ && #{mark}")
+          # Step 3: Copy the remote cache into place, excluding scm directories (for svn, git, cvs, bzr and more).
+          run("rsync -a --cvs_exclude --delete #{repository_cache}/ #{configuration[:release_path]}/ && #{mark}")
         end
 
         # Defines commands that should be checked for by deploy:check. These include the SCM command
