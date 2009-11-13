@@ -40,7 +40,7 @@ class CapistranoRsyncWithRemoteCacheTest < Test::Unit::TestCase
 
       # Step 3: Copy the remote cache into place.
       @rwrc.expects(:mark).returns('mark')
-      @rwrc.expects(:run).with("rsync -a --delete shared/cached-copy/ release_path/ && mark")
+      @rwrc.expects(:run).with("rsync -a --cvs-exclude --delete shared/cached-copy/ release_path/ && mark")
 
       @rwrc.deploy!
     end
