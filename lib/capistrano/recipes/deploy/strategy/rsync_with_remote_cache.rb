@@ -28,7 +28,7 @@ module Capistrano
           end
 
           # Step 3: Copy the remote cache into place, excluding scm directories (for svn, git, cvs, bzr and more).
-          run("rsync -a --cvs_exclude --delete #{repository_cache}/ #{configuration[:release_path]}/ && #{mark}")
+          run("rsync -a --cvs-exclude --delete #{repository_cache}/ #{configuration[:release_path]}/ && #{mark}")
         end
 
         # Defines commands that should be checked for by deploy:check. These include the SCM command
